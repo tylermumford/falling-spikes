@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F271A341C6C229100D45664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A331C6C229100D45664 /* AppDelegate.swift */; };
+		2F271A361C6C229100D45664 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A351C6C229100D45664 /* GameScene.sks */; };
+		2F271A381C6C229100D45664 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A371C6C229100D45664 /* GameScene.swift */; };
+		2F271A3A1C6C229100D45664 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A391C6C229100D45664 /* GameViewController.swift */; };
+		2F271A3D1C6C229100D45664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A3B1C6C229100D45664 /* Main.storyboard */; };
+		2F271A3F1C6C229200D45664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A3E1C6C229200D45664 /* Assets.xcassets */; };
+		2F271A421C6C229200D45664 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A401C6C229200D45664 /* LaunchScreen.storyboard */; };
+		2F271A4D1C6C229300D45664 /* Falling_SpikesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A4C1C6C229300D45664 /* Falling_SpikesTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F271A491C6C229300D45664 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F271A281C6C229000D45664 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F271A2F1C6C229000D45664;
+			remoteInfo = "Falling Spikes";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F271A301C6C229100D45664 /* Falling Spikes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Falling Spikes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F271A331C6C229100D45664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2F271A351C6C229100D45664 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		2F271A371C6C229100D45664 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		2F271A391C6C229100D45664 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		2F271A3C1C6C229100D45664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F271A3E1C6C229200D45664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F271A411C6C229200D45664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2F271A431C6C229200D45664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F271A481C6C229300D45664 /* Falling SpikesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Falling SpikesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F271A4C1C6C229300D45664 /* Falling_SpikesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Falling_SpikesTests.swift; sourceTree = "<group>"; };
+		2F271A4E1C6C229300D45664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F271A2D1C6C229000D45664 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F271A451C6C229300D45664 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F271A271C6C229000D45664 = {
+			isa = PBXGroup;
+			children = (
+				2F271A321C6C229100D45664 /* Falling Spikes */,
+				2F271A4B1C6C229300D45664 /* Falling SpikesTests */,
+				2F271A311C6C229100D45664 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F271A311C6C229100D45664 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F271A301C6C229100D45664 /* Falling Spikes.app */,
+				2F271A481C6C229300D45664 /* Falling SpikesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F271A321C6C229100D45664 /* Falling Spikes */ = {
+			isa = PBXGroup;
+			children = (
+				2F271A331C6C229100D45664 /* AppDelegate.swift */,
+				2F271A351C6C229100D45664 /* GameScene.sks */,
+				2F271A371C6C229100D45664 /* GameScene.swift */,
+				2F271A391C6C229100D45664 /* GameViewController.swift */,
+				2F271A3B1C6C229100D45664 /* Main.storyboard */,
+				2F271A3E1C6C229200D45664 /* Assets.xcassets */,
+				2F271A401C6C229200D45664 /* LaunchScreen.storyboard */,
+				2F271A431C6C229200D45664 /* Info.plist */,
+			);
+			path = "Falling Spikes";
+			sourceTree = "<group>";
+		};
+		2F271A4B1C6C229300D45664 /* Falling SpikesTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F271A4C1C6C229300D45664 /* Falling_SpikesTests.swift */,
+				2F271A4E1C6C229300D45664 /* Info.plist */,
+			);
+			path = "Falling SpikesTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F271A2F1C6C229000D45664 /* Falling Spikes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F271A511C6C229300D45664 /* Build configuration list for PBXNativeTarget "Falling Spikes" */;
+			buildPhases = (
+				2F271A2C1C6C229000D45664 /* Sources */,
+				2F271A2D1C6C229000D45664 /* Frameworks */,
+				2F271A2E1C6C229000D45664 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Falling Spikes";
+			productName = "Falling Spikes";
+			productReference = 2F271A301C6C229100D45664 /* Falling Spikes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F271A471C6C229300D45664 /* Falling SpikesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F271A541C6C229300D45664 /* Build configuration list for PBXNativeTarget "Falling SpikesTests" */;
+			buildPhases = (
+				2F271A441C6C229300D45664 /* Sources */,
+				2F271A451C6C229300D45664 /* Frameworks */,
+				2F271A461C6C229300D45664 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F271A4A1C6C229300D45664 /* PBXTargetDependency */,
+			);
+			name = "Falling SpikesTests";
+			productName = "Falling SpikesTests";
+			productReference = 2F271A481C6C229300D45664 /* Falling SpikesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F271A281C6C229000D45664 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Mindful Code";
+				TargetAttributes = {
+					2F271A2F1C6C229000D45664 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = J8WY2DR494;
+					};
+					2F271A471C6C229300D45664 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = J8WY2DR494;
+						TestTargetID = 2F271A2F1C6C229000D45664;
+					};
+				};
+			};
+			buildConfigurationList = 2F271A2B1C6C229000D45664 /* Build configuration list for PBXProject "Falling Spikes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F271A271C6C229000D45664;
+			productRefGroup = 2F271A311C6C229100D45664 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F271A2F1C6C229000D45664 /* Falling Spikes */,
+				2F271A471C6C229300D45664 /* Falling SpikesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F271A2E1C6C229000D45664 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F271A361C6C229100D45664 /* GameScene.sks in Resources */,
+				2F271A421C6C229200D45664 /* LaunchScreen.storyboard in Resources */,
+				2F271A3F1C6C229200D45664 /* Assets.xcassets in Resources */,
+				2F271A3D1C6C229100D45664 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F271A461C6C229300D45664 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F271A2C1C6C229000D45664 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F271A381C6C229100D45664 /* GameScene.swift in Sources */,
+				2F271A3A1C6C229100D45664 /* GameViewController.swift in Sources */,
+				2F271A341C6C229100D45664 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F271A441C6C229300D45664 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F271A4D1C6C229300D45664 /* Falling_SpikesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F271A4A1C6C229300D45664 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F271A2F1C6C229000D45664 /* Falling Spikes */;
+			targetProxy = 2F271A491C6C229300D45664 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F271A3B1C6C229100D45664 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F271A3C1C6C229100D45664 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2F271A401C6C229200D45664 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F271A411C6C229200D45664 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F271A4F1C6C229300D45664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2F271A501C6C229300D45664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F271A521C6C229300D45664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Falling Spikes/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minfulcode.Falling-Spikes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2F271A531C6C229300D45664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Falling Spikes/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minfulcode.Falling-Spikes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2F271A551C6C229300D45664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Falling SpikesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minfulcode.Falling-SpikesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Falling Spikes.app/Falling Spikes";
+			};
+			name = Debug;
+		};
+		2F271A561C6C229300D45664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Falling SpikesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minfulcode.Falling-SpikesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Falling Spikes.app/Falling Spikes";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F271A2B1C6C229000D45664 /* Build configuration list for PBXProject "Falling Spikes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F271A4F1C6C229300D45664 /* Debug */,
+				2F271A501C6C229300D45664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F271A511C6C229300D45664 /* Build configuration list for PBXNativeTarget "Falling Spikes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F271A521C6C229300D45664 /* Debug */,
+				2F271A531C6C229300D45664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F271A541C6C229300D45664 /* Build configuration list for PBXNativeTarget "Falling SpikesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F271A551C6C229300D45664 /* Debug */,
+				2F271A561C6C229300D45664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F271A281C6C229000D45664 /* Project object */;
+}
