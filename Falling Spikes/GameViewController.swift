@@ -14,9 +14,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let v = view as? SKView {
-            let s = MenuScene()
-            print(s.scaleMode)
-            s.scaleMode = .AspectFit
+            let s = MenuScene(size: view.bounds.size)
+            s.scaleMode = .AspectFill
             v.presentScene(s)
         }
     }

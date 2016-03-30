@@ -14,7 +14,8 @@
 		2F271A3D1C6C229100D45664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A3B1C6C229100D45664 /* Main.storyboard */; };
 		2F271A3F1C6C229200D45664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A3E1C6C229200D45664 /* Assets.xcassets */; };
 		2F271A4D1C6C229300D45664 /* Falling_SpikesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A4C1C6C229300D45664 /* Falling_SpikesTests.swift */; };
-		2F271A581C6C31EC00D45664 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A571C6C31EC00D45664 /* GameScene.sks */; };
+		533232181CAC80990083948F /* Finger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533232171CAC80990083948F /* Finger.swift */; };
+		5332321A1CAC80AD0083948F /* ControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533232191CAC80AD0083948F /* ControlScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,8 @@
 		2F271A481C6C229300D45664 /* Falling SpikesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Falling SpikesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F271A4C1C6C229300D45664 /* Falling_SpikesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Falling_SpikesTests.swift; sourceTree = "<group>"; };
 		2F271A4E1C6C229300D45664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F271A571C6C31EC00D45664 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		533232171CAC80990083948F /* Finger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finger.swift; sourceTree = "<group>"; };
+		533232191CAC80AD0083948F /* ControlScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,6 @@
 			children = (
 				2F0A87D81CAA23E900199E83 /* MenuScene.swift */,
 				2F271A371C6C229100D45664 /* GameScene.swift */,
-				2F271A571C6C31EC00D45664 /* GameScene.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -96,6 +97,7 @@
 				2F271A391C6C229100D45664 /* GameViewController.swift */,
 				2F0A87DA1CAA240800199E83 /* Scenes */,
 				2F271A3E1C6C229200D45664 /* Assets.xcassets */,
+				533232161CAC807C0083948F /* Control Schemes */,
 				2F271A431C6C229200D45664 /* Info.plist */,
 			);
 			path = "Falling Spikes";
@@ -108,6 +110,15 @@
 				2F271A4E1C6C229300D45664 /* Info.plist */,
 			);
 			path = "Falling SpikesTests";
+			sourceTree = "<group>";
+		};
+		533232161CAC807C0083948F /* Control Schemes */ = {
+			isa = PBXGroup;
+			children = (
+				533232191CAC80AD0083948F /* ControlScheme.swift */,
+				533232171CAC80990083948F /* Finger.swift */,
+			);
+			name = "Control Schemes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +204,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F271A581C6C31EC00D45664 /* GameScene.sks in Resources */,
 				2F271A3F1C6C229200D45664 /* Assets.xcassets in Resources */,
 				2F271A3D1C6C229100D45664 /* Main.storyboard in Resources */,
 			);
@@ -215,8 +225,10 @@
 			files = (
 				2F271A381C6C229100D45664 /* GameScene.swift in Sources */,
 				2F0A87D91CAA23E900199E83 /* MenuScene.swift in Sources */,
+				5332321A1CAC80AD0083948F /* ControlScheme.swift in Sources */,
 				2F271A3A1C6C229100D45664 /* GameViewController.swift in Sources */,
 				2F271A341C6C229100D45664 /* AppDelegate.swift in Sources */,
+				533232181CAC80990083948F /* Finger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

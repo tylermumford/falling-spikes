@@ -11,43 +11,49 @@ import SpriteKit
 class GameScene: SKScene {
     
     let playerBall = SKSpriteNode(imageNamed: "PlayerBall")
+    var lastTouchLocation = CGPoint(x: 0, y: 0)
+    
     
     override func didMoveToView(view: SKView) {
-        /* Set up the scene */
+        resetPlayerBallPosition()
+        lastTouchLocation.x = playerBall.position.x
+        backgroundColor = UIColor.cyanColor()
+        
+        
+        addChild(playerBall)
     }
     
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
         for touch in touches {
             let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spike")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+            lastTouchLocation = location
+        }
+    }
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            lastTouchLocation = location
+        }
+    }
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            lastTouchLocation = location
         }
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        playerBall.runAction(SKAction.moveTo(lastTouchLocation, duration: 0.2))
     }
     
     
     func resetPlayerBallPosition() {
-        let x = size.width / 2
-        let y = CGFloat(0.0)
-        playerBall.position = CGPoint(x: x, y: y)
-    }
-    
-    func drawGridLines() {
-        
+        playerBall.anchorPoint = CGPoint(x: 0.5, y: 0)
+        playerBall.position = CGPoint(
+            x: size.width / 2,
+            y: 0
+        )
+        playerBall.setScale(0.45)
     }
 }
