@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0A87D91CAA23E900199E83 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A87D81CAA23E900199E83 /* MenuScene.swift */; };
 		2F271A341C6C229100D45664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A331C6C229100D45664 /* AppDelegate.swift */; };
-		2F271A361C6C229100D45664 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A351C6C229100D45664 /* GameScene.sks */; };
 		2F271A381C6C229100D45664 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A371C6C229100D45664 /* GameScene.swift */; };
 		2F271A3A1C6C229100D45664 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A391C6C229100D45664 /* GameViewController.swift */; };
 		2F271A3D1C6C229100D45664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A3B1C6C229100D45664 /* Main.storyboard */; };
 		2F271A3F1C6C229200D45664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A3E1C6C229200D45664 /* Assets.xcassets */; };
-		2F271A421C6C229200D45664 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A401C6C229200D45664 /* LaunchScreen.storyboard */; };
 		2F271A4D1C6C229300D45664 /* Falling_SpikesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F271A4C1C6C229300D45664 /* Falling_SpikesTests.swift */; };
+		2F271A581C6C31EC00D45664 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2F271A571C6C31EC00D45664 /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,18 +28,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F0A87D81CAA23E900199E83 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		2F271A301C6C229100D45664 /* Falling Spikes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Falling Spikes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F271A331C6C229100D45664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F271A351C6C229100D45664 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		2F271A371C6C229100D45664 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2F271A391C6C229100D45664 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2F271A3C1C6C229100D45664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F271A3E1C6C229200D45664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2F271A411C6C229200D45664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F271A431C6C229200D45664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F271A481C6C229300D45664 /* Falling SpikesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Falling SpikesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F271A4C1C6C229300D45664 /* Falling_SpikesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Falling_SpikesTests.swift; sourceTree = "<group>"; };
 		2F271A4E1C6C229300D45664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F271A571C6C31EC00D45664 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +60,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F0A87DA1CAA240800199E83 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2F0A87D81CAA23E900199E83 /* MenuScene.swift */,
+				2F271A371C6C229100D45664 /* GameScene.swift */,
+				2F271A571C6C31EC00D45664 /* GameScene.sks */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		2F271A271C6C229000D45664 = {
 			isa = PBXGroup;
 			children = (
@@ -81,13 +91,11 @@
 		2F271A321C6C229100D45664 /* Falling Spikes */ = {
 			isa = PBXGroup;
 			children = (
-				2F271A331C6C229100D45664 /* AppDelegate.swift */,
-				2F271A351C6C229100D45664 /* GameScene.sks */,
-				2F271A371C6C229100D45664 /* GameScene.swift */,
-				2F271A391C6C229100D45664 /* GameViewController.swift */,
 				2F271A3B1C6C229100D45664 /* Main.storyboard */,
+				2F271A331C6C229100D45664 /* AppDelegate.swift */,
+				2F271A391C6C229100D45664 /* GameViewController.swift */,
+				2F0A87DA1CAA240800199E83 /* Scenes */,
 				2F271A3E1C6C229200D45664 /* Assets.xcassets */,
-				2F271A401C6C229200D45664 /* LaunchScreen.storyboard */,
 				2F271A431C6C229200D45664 /* Info.plist */,
 			);
 			path = "Falling Spikes";
@@ -185,8 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F271A361C6C229100D45664 /* GameScene.sks in Resources */,
-				2F271A421C6C229200D45664 /* LaunchScreen.storyboard in Resources */,
+				2F271A581C6C31EC00D45664 /* GameScene.sks in Resources */,
 				2F271A3F1C6C229200D45664 /* Assets.xcassets in Resources */,
 				2F271A3D1C6C229100D45664 /* Main.storyboard in Resources */,
 			);
@@ -207,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F271A381C6C229100D45664 /* GameScene.swift in Sources */,
+				2F0A87D91CAA23E900199E83 /* MenuScene.swift in Sources */,
 				2F271A3A1C6C229100D45664 /* GameViewController.swift in Sources */,
 				2F271A341C6C229100D45664 /* AppDelegate.swift in Sources */,
 			);
@@ -237,14 +245,6 @@
 				2F271A3C1C6C229100D45664 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2F271A401C6C229200D45664 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F271A411C6C229200D45664 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -339,6 +339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.minfulcode.Falling-Spikes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -350,6 +351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.minfulcode.Falling-Spikes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -397,6 +399,7 @@
 				2F271A531C6C229300D45664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F271A541C6C229300D45664 /* Build configuration list for PBXNativeTarget "Falling SpikesTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +408,7 @@
 				2F271A561C6C229300D45664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
