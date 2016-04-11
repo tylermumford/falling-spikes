@@ -15,8 +15,6 @@ class MenuScene: SKScene {
     override func didMoveToView(view: SKView) {
         backgroundColor = UIColor.grayColor()
         
-        print(frame)
-        
         playButton.xScale = 0.7
         playButton.yScale = 0.7
         playButton.position = CGPoint(
@@ -24,7 +22,6 @@ class MenuScene: SKScene {
             y: frame.height / 2
         )
 
-        
         addChild(playButton)
     }
     
@@ -32,7 +29,6 @@ class MenuScene: SKScene {
         for touch in touches {
             let point = touch.locationInNode(self)
             if nodeAtPoint(point) == playButton {
-//                print("Let's play!")
                 view?.presentScene(GameScene(size: CGSize(
                     width: frame.width,
                     height: frame.height
