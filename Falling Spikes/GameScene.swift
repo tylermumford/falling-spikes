@@ -9,20 +9,54 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+private let ballHeightMax = CGFloat(150)
+private let ballHeightMin: CGFloat = {
+    let a = SKTexture(imageNamed: "PlayerBall")
+    return a.size().height / 2
+}()
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var playerHp = 1 {
+        didSet {
+            if playerHp <= 0 {
+                gameOver()
+            }
+        }
+    }
     let playerBall = SKSpriteNode(imageNamed: "PlayerBall")
+    let ballBouncing = SKAction.repeatActionForever(
+        SKAction.sequence([
+            { let a = SKAction.moveToY(ballHeightMax, duration: 0.6); a.timingMode = .EaseOut; return a }(),
+            { let a = SKAction.moveToY(ballHeightMin, duration: 0.6); a.timingMode = .EaseIn; return a }()
+        ])
+    )
     var spikeDropperX: GKShuffledDistribution!
     var spikeDropperY: GKRandomDistribution!
     var spikes = Set<SKSpriteNode>()
     
     var spikeCount = 8
-    var lastTouchLocation = CGPoint(x: 0, y: 0)
+    
+    var lastTouchLocation = CGPoint(x: 0, y: 0) {
+        didSet {
+            // Move playerBall here
+            
+            let displacement: CGFloat = {
+                let a = lastTouchLocation.x - playerBall.position.x
+                let b = lastTouchLocation.y - playerBall.position.y
+                return sqrt(a * a + b * b)
+            }()
+            let stdDisplacement = frame.width * 0.7
+            let move = SKAction.moveToX(lastTouchLocation.x, duration: Double(displacement / stdDisplacement))
+            move.timingMode = .EaseInEaseOut
+            playerBall.runAction(move)
+        }
+    }
     
     enum Category: UInt32 {
-        case Player = 0x0000000F
-        case Environment = 0x000000F0
-        case Enemy = 0x00000F00
+        case Player = 0x00000001
+        case Environment = 0x00000010
+        case Enemy = 0x00000100
     }
     
     
@@ -33,7 +67,9 @@ class GameScene: SKScene {
         let physicsBounds = CGRect(x: position.x, y: position.y - 200, width: frame.width, height: frame.height + 800)
         physicsBody = SKPhysicsBody(edgeLoopFromRect: physicsBounds)
         physicsBody?.categoryBitMask = Category.Environment.rawValue
+        physicsBody?.contactTestBitMask = Category.Enemy.rawValue
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -0.3)
+        physicsWorld.contactDelegate = self
         backgroundColor = UIColor.cyanColor()
         spikeDropperX = GKShuffledDistribution(
             lowestValue: Int(frame.minX),
@@ -52,9 +88,11 @@ class GameScene: SKScene {
         for _ in 0..<spikeCount {
             // Create spikes
             let s = SKSpriteNode(imageNamed: "Spike")
+            s.name = "spike"
             s.physicsBody = SKPhysicsBody(texture: s.texture!, size: s.size)
             s.physicsBody?.categoryBitMask = Category.Enemy.rawValue
-            physicsBody?.collisionBitMask = Category.Player.rawValue
+            s.physicsBody?.collisionBitMask = Category.Player.rawValue
+            s.physicsBody?.contactTestBitMask = Category.Player.rawValue
             s.physicsBody?.allowsRotation = false
             s.position.y = nextSpikeY()
             s.position.x = nextSpikeX()
@@ -66,26 +104,21 @@ class GameScene: SKScene {
         )
         playerBall.physicsBody = SKPhysicsBody(texture: playerBall.texture!, size: playerBall.size)
         playerBall.physicsBody?.categoryBitMask = Category.Player.rawValue
-        playerBall.physicsBody?.collisionBitMask = Category.Enemy.rawValue & Category.Environment.rawValue
+        playerBall.physicsBody?.contactTestBitMask = Category.Enemy.rawValue
+        playerBall.userData = ["hp": 1]
+        playerBall.runAction(ballBouncing)
+
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let timesPlayedValue = "Attempts: \(defaults.integerForKey("timesPlayed"))"
+        let timesPlayed = SKLabelNode(text: timesPlayedValue)
+        timesPlayed.position.x = 0 + timesPlayed.frame.width
+        timesPlayed.position.y = frame.maxY - timesPlayed.frame.height
         
         // Add nodes
         
         addChild(playerBall)
+        addChild(timesPlayed)
         spikes.forEach(addChild)
-    }
-    
-    override func update(currentTime: CFTimeInterval) {
-        if playerBall.position != lastTouchLocation {
-            playerBall.runAction(SKAction.moveTo(lastTouchLocation, duration: 0.2))
-        }
-        for spike in spikes {
-            // Reset spikes that have fallen below the screen
-            if spike.position.y <= -spike.frame.maxY {
-                spike.position.y = nextSpikeY()
-                spike.position.x = nextSpikeX()
-                spike.physicsBody?.velocity = CGVector(dx: 0, dy: -0.5)
-            }
-        }
     }
     
     
@@ -100,6 +133,42 @@ class GameScene: SKScene {
     }
     
     
+    // MARK: Contacts
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let contactType = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        switch contactType {
+        case Category.Enemy.rawValue | Category.Environment.rawValue:
+            guard contact.contactPoint.y < 0 else { return }
+            let spike = contact.bodyB.node?.name == "spike" ? contact.bodyB.node! : contact.bodyA.node!
+            let newLoc = CGPoint(x: nextSpikeX(), y: nextSpikeY())
+            spike.runAction(SKAction.moveTo(newLoc, duration: 0))
+            spike.physicsBody?.velocity = CGVector(dx: 0, dy: -0.5)
+        case Category.Enemy.rawValue | Category.Player.rawValue:
+            playerHp -= 1
+        default:
+            break
+        }
+    }
+    
+    
+    // MARK: - Gameplay
+    
+    func gameOver() {
+        physicsWorld.speed = 0
+        playerBall.removeAllActions()
+        
+        let gameOverMan = SKLabelNode(text: "Game Over!")
+        gameOverMan.position = CGPoint(x: frame.midX, y: frame.midY)
+        gameOverMan.name = "gameOverMan"
+        addChild(gameOverMan)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let played = defaults.integerForKey("timesPlayed")
+        defaults.setInteger(played + 1, forKey: "timesPlayed")
+    }
+    
     // MARK: - Touch events
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -107,7 +176,7 @@ class GameScene: SKScene {
             // TESTING
             view?.presentScene(MenuScene(size: CGSize(width: frame.width, height: frame.height)))
         }
-        
+        guard playerHp > 0 else { return }
         for touch in touches {
             let location = touch.locationInNode(self)
             lastTouchLocation = location
@@ -115,6 +184,7 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard playerHp > 0 else { return }
         for touch in touches {
             let location = touch.locationInNode(self)
             lastTouchLocation = location
@@ -122,6 +192,7 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard playerHp > 0 else { return }
         for touch in touches {
             let location = touch.locationInNode(self)
             lastTouchLocation = location
