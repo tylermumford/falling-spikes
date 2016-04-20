@@ -10,10 +10,7 @@ import Foundation
 
 class HighScores {
     
-    static private var scores: [Int] = {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.arrayForKey(defaultsKey) as! [Int]
-    }()
+    static private var scores: [Int]!
     static private var sorted: [Int]?
     
     
@@ -38,6 +35,15 @@ class HighScores {
     
     static func isHighestScore(score: Int) -> Bool {
         return score > allScores.first ?? Int.min
+    }
+    
+    static func fetch() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let saved = defaults.arrayForKey(defaultsKey) as? [Int] {
+            scores = saved
+        } else {
+            print("No saved scores found.")
+        }
     }
     
     static func save() {
