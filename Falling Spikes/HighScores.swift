@@ -51,4 +51,13 @@ class HighScores {
         defaults.setObject(allScores, forKey: defaultsKey)
     }
     
+    static func clear() {
+        scores = nil
+        sorted = nil
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey(defaultsKey)
+        fetch()
+    }
+    
 }

@@ -10,6 +10,13 @@ import UIKit
 
 class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var table: UITableView!
+    
+    @IBAction func clearAllScores(sender: UIBarButtonItem) {
+        HighScores.clear()
+        table.reloadData()
+    }
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = UITableViewCell(style: .Default, reuseIdentifier: nil)
         let i = indexPath.row
