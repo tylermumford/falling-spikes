@@ -19,7 +19,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var playerHp = 1 {
         didSet {
-            if playerHp <= 0 {
+            if playerHp == 0 {
+                print("playerHP didSet calling gameOver.")
                 gameOver()
             }
         }
@@ -35,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var spikeDropperY: GKRandomDistribution!
     var spikes = Set<SKSpriteNode>()
     
-    var spikeCount = 8
+    var spikeCount = 6
     
     var lastTouchLocation = CGPoint(x: 0, y: 0) {
         didSet {
@@ -53,6 +54,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var gameOverFunc: (() -> Void)?
+    
     enum Category: UInt32 {
         case Player = 0x00000001
         case Environment = 0x00000010
@@ -68,7 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsBody = SKPhysicsBody(edgeLoopFromRect: physicsBounds)
         physicsBody?.categoryBitMask = Category.Environment.rawValue
         physicsBody?.contactTestBitMask = Category.Enemy.rawValue
-        physicsWorld.gravity = CGVector(dx: 0.0, dy: -0.3)
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: -0.167)
         physicsWorld.contactDelegate = self
         backgroundColor = UIColor.cyanColor()
         spikeDropperX = GKShuffledDistribution(
@@ -107,17 +110,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerBall.physicsBody?.contactTestBitMask = Category.Enemy.rawValue
         playerBall.userData = ["hp": 1]
         playerBall.runAction(ballBouncing)
-
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let timesPlayedValue = "Attempts: \(defaults.integerForKey("timesPlayed"))"
-        let timesPlayed = SKLabelNode(text: timesPlayedValue)
-        timesPlayed.position.x = 0 + timesPlayed.frame.width
-        timesPlayed.position.y = frame.maxY - timesPlayed.frame.height
         
         // Add nodes
         
         addChild(playerBall)
-        addChild(timesPlayed)
         spikes.forEach(addChild)
     }
     
@@ -144,7 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let spike = contact.bodyB.node?.name == "spike" ? contact.bodyB.node! : contact.bodyA.node!
             let newLoc = CGPoint(x: nextSpikeX(), y: nextSpikeY())
             spike.runAction(SKAction.moveTo(newLoc, duration: 0))
-            spike.physicsBody?.velocity = CGVector(dx: 0, dy: -0.5)
+//            spike.physicsBody?.velocity = CGVector(dx: 0, dy: -0.5)
         case Category.Enemy.rawValue | Category.Player.rawValue:
             playerHp -= 1
         default:
@@ -156,26 +152,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Gameplay
     
     func gameOver() {
-        physicsWorld.speed = 0
-        playerBall.removeAllActions()
-        
-        let gameOverMan = SKLabelNode(text: "Game Over!")
-        gameOverMan.position = CGPoint(x: frame.midX, y: frame.midY)
-        gameOverMan.name = "gameOverMan"
-        addChild(gameOverMan)
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let played = defaults.integerForKey("timesPlayed")
-        defaults.setInteger(played + 1, forKey: "timesPlayed")
+        if let routine = gameOverFunc {
+            routine()
+        }
     }
     
     // MARK: - Touch events
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if touches.count == 2 {
-            // TESTING
-            view?.presentScene(MenuScene(size: CGSize(width: frame.width, height: frame.height)))
-        }
         guard playerHp > 0 else { return }
         for touch in touches {
             let location = touch.locationInNode(self)
