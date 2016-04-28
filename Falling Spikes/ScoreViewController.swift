@@ -18,9 +18,10 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let c = UITableViewCell(style: .Default, reuseIdentifier: nil)
+        let c = tableView.dequeueReusableCellWithIdentifier("ScoreCell")!
         let i = indexPath.row
-        c.textLabel?.text = "\(HighScores.allScores[i]) seconds"
+        c.textLabel?.text = "\(HighScores.allScores[i].0) seconds"
+        c.detailTextLabel?.text = HighScores.allScores[i].date
         return c
     }
     

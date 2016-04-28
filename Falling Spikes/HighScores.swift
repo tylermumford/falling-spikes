@@ -8,18 +8,29 @@
 
 import Foundation
 
+typealias Score = (Int, date: String)
+
 class HighScores {
     
-    static private var scores: [Int]!
-    static private var sorted: [Int]?
+    static private var scores: [Score]!
+    static private var sorted: [Score]?
+    
+    static let dateFormat: NSDateFormatter = {
+        let a = NSDateFormatter()
+        a.dateStyle = .MediumStyle
+        a.timeStyle = .ShortStyle
+        return a
+    }()
     
     
     static let defaultsKey = "highScores"
-    static var allScores: [Int] {
+    static let defaultsKeyDates = "highScoreDates"
+    static var allScores: [Score] {
         if let s = sorted {
             return s
         } else {
-            sorted = scores.sort(>)
+            if scores == nil { scores = [Score]() }
+            sorted = scores.sort { $0.0 > $1.0 }
             return sorted!
         }
     }
@@ -27,28 +38,42 @@ class HighScores {
     
     static func recordScore(score: Int) {
         guard score > 3 else { return }
+        if scores == nil { scores = [Score]() }
+        
         print("Recording score: \(score)")
+        let date = dateFormat.stringFromDate(NSDate())
         sorted = nil
-        scores.append(score)
-        // TODO: Record time, maybe player name
+        scores.append((score, date))
     }
     
     static func isHighestScore(score: Int) -> Bool {
-        return score > allScores.first ?? Int.min
+        return score > allScores.first?.0 ?? Int.min
     }
     
     static func fetch() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        if let saved = defaults.arrayForKey(defaultsKey) as? [Int] {
-            scores = saved
-        } else {
-            print("No saved scores found.")
+        
+        guard let dates = defaults.arrayForKey(defaultsKeyDates) as? [String],
+            saved = defaults.arrayForKey(defaultsKey) as? [Int] else {
+                print("No saved scores found.")
+                return
+        }
+        
+        scores = [Score]()
+        sorted = nil
+        let combined = zip(saved, dates)
+        for pair in combined {
+            scores.append(pair as Score)
         }
     }
     
     static func save() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(allScores, forKey: defaultsKey)
+        
+        let values = allScores.map { $0.0 }
+        let dates = allScores.map { $0.date }
+        defaults.setObject(values, forKey: defaultsKey)
+        defaults.setObject(dates, forKey: defaultsKeyDates)
     }
     
     static func clear() {
